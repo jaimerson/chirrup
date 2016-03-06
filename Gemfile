@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'rails',                  '4.2.5'
+
+gem 'clearance',              '~> 1.13.0'
 gem 'puma',                   '2.15.3'
 gem 'secure_headers',         '2.4.4'
 gem 'jquery-rails',           '4.0.5'

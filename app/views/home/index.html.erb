@@ -3,15 +3,14 @@
 <% end %>
 <div class="hero">
 	<div class="hero-inner">
-    <a href="" class="hero-logo">
-      <%= image_tag "logo_white.png", alt: "Logo image" %>
-    </a>
+    <%= image_tag "logo_white.png", alt: "Logo image" %>
 		<div class="hero-copy">
 			<h1>Chirrup</h1>
       <p>
         Yet another microblog platform that you will love
       </p>	
 		</div>
-    <button>Sign up</button>
+    <%= button_to t('layouts.application.sign_up'), sign_up_path %>
+    <p><small>Or, <%= link_to 'sign in', sign_in_path %></small></p>
 	</div>
 </div>

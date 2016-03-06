@@ -264,8 +264,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -331,7 +329,6 @@ DEPENDENCIES
   slim-rails (= 3.0.1)
   spring (= 1.5.0)
   spring-commands-rspec (= 1.0.4)
-  turbolinks (= 2.5.3)
   uglifier (= 2.7.2)
   vcr (= 3.0.0)
   webmock (= 1.22.3)

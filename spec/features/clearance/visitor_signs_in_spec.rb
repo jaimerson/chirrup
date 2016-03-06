@@ -10,8 +10,15 @@ RSpec.feature "Visitor signs in" do
   end
 
   scenario "with valid mixed-case email and password " do
-    create_user "user.name@example.com", "password"
+    create_user "user.name@example.com", "password", username: 'foodrug'
     sign_in_with "User.Name@example.com", "password"
+
+    expect_user_to_be_signed_in
+  end
+
+  scenario "with username and password " do
+    create_user "user.name@example.com", "password", username: 'johndoe666'
+    sign_in_with "johndoe666", "password"
 
     expect_user_to_be_signed_in
   end
@@ -33,8 +40,8 @@ RSpec.feature "Visitor signs in" do
 
   private
 
-  def create_user(email, password)
-    FactoryGirl.create(:user, email: email, password: password)
+  def create_user(email, password, username: email.split('@').first)
+    FactoryGirl.create(:user, email: email, password: password, username: username)
   end
 
   def expect_page_to_display_sign_in_error

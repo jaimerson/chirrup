@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    errors:
+      default_messsage: 'Os seguintes erros foram encontrados:'
+      format: '%{message}'
+    models:
+      user: Usuário
+    attributes:
+      user:
+        email: Email
+        username: "Nome de usuário"
+        email_or_username: "Email ou nome de usuário"
+        password: Senha

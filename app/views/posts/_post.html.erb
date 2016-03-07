@@ -1,6 +1,6 @@
 <div class="comment">
   <div class="comment-image">
-    <img src="http://placebear.com/150/150" alt="Logo image">
+    <%= user_avatar_for(post.user, size: 150) %>
   </div>
   <div class="comment-content">
     <h1>@<%= post.user.username %></h1>

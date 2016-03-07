@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   include Clearance::User
+  include Gravtastic
+
+  has_gravatar
 
   has_many :posts, dependent: :destroy
 

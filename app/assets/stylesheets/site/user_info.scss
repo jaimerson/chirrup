@@ -1,0 +1,42 @@
+.user-info{
+  $light-gray: #AAA;
+  $bright-orange: #DBCA20;
+
+  height: 100%;
+
+  .profile-image{
+    margin: 0 auto;
+    display: block;
+  }
+
+  .username{
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .stats{
+    display: flex;
+
+    li{
+      border-right: 1px solid transparentize($light-gray, 0.8);
+      display: inline-block;
+      flex: 1 1 auto;
+      padding: 10px;
+
+      &:last-child{
+        border: none;
+      }
+    }
+
+    .stats-caption{
+      color: $light-gray;
+      text-transform: uppercase;
+      font-size: .6em;
+    }
+
+    .stats-value{
+      font-weight: 400;
+      color: $bright-orange;
+    }
+  }
+}

@@ -8,6 +8,10 @@ class PostsController < ApplicationController
       .order(created_at: :desc)
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user = current_user

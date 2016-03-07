@@ -3,7 +3,11 @@
     <%= user_avatar_for(post.user, size: 150) %>
   </div>
   <div class="comment-content">
-    <h1>@<%= post.user.username %></h1>
+    <h1>
+      <%= link_to user_path(post.username) do %>
+        @<%= post.username %>
+      <% end %>
+    </h1>
     <p><%= post.content %></p>
     <p class="comment-detail">
       <%= time_ago_in_words(post.created_at) %>

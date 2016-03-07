@@ -8,4 +8,5 @@ class Post < ActiveRecord::Base
     length: { maximum: 160 }
 
   validates_presence_of :user
+  delegate :username, to: :user
 end

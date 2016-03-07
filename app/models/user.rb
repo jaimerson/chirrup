@@ -6,6 +6,24 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
 
+  has_many :following_relationships,
+    class_name: 'Followership',
+    foreign_key: :follower_id,
+    dependent: :delete_all
+
+  has_many :follower_relationships,
+    class_name: 'Followership',
+    dependent: :delete_all
+
+  has_many :followers,
+    through: :follower_relationships,
+    class_name: 'User'
+
+  has_many :following,
+    through: :following_relationships,
+    class_name: 'User',
+    source: :user
+
   validates :username,
     presence: true,
     uniqueness: { case_sensitive: false },
@@ -19,5 +37,9 @@ class User < ActiveRecord::Base
     else
       super(email_or_username, password)
     end
+  end
+
+  def follow(user)
+    user.followers << self unless user.followers.include? self
   end
 end

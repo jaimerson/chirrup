@@ -45,4 +45,21 @@ RSpec.describe User do
       end
     end
   end
+
+  describe '#follow' do
+    let(:leader) { create(:user) }
+    let(:follower) { create(:user) }
+
+    subject(:follow) { follower.follow(leader) }
+
+    it 'adds the leader to the following list of the follower' do
+      follow
+      expect(follower.following).to include(leader)
+    end
+
+    it 'adds the follower to the followers list of the leader' do
+      follow
+      expect(leader.followers).to include(follower)
+    end
+  end
 end

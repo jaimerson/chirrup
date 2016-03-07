@@ -4,11 +4,11 @@
 </div>
 
 <div class="text-field">
-  <%= form.label :username %>
+  <%= form.label t(:username, scope: [:activerecord, :attributes, :user]) %>
   <%= form.text_field :username %>
 </div>
 
 <div class="password-field">
-  <%= form.label :password %>
+  <%= form.label t(:password, scope: [:activerecord, :attributes, :user]) %>
   <%= form.password_field :password %>
 </div>

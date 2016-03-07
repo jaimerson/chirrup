@@ -5,7 +5,7 @@
   </div>
 
   <div class="password-field">
-    <%= form.label :password %>
+    <%= form.label t(:password, scope: [:activerecord, :attributes, :user]) %>
     <%= form.password_field :password %>
   </div>
 

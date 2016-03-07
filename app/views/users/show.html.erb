@@ -1,0 +1,9 @@
+<aside class="user-info flex-box flex-box-small">
+  <%= render 'user_info', user: @user %>
+</aside>
+
+<div class="content flex-box flex-box-big">
+  <section class="posts">
+    <%= render partial: 'posts/post', collection: @user.posts %>
+  </section>
+</div>

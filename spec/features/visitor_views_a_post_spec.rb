@@ -4,7 +4,7 @@ RSpec.feature 'Visitor views a post' do
   given!(:post) { create(:post) }
 
   background do
-    visit post_path(post)
+    visit post_path(post.username, post)
   end
 
   scenario 'views the post content' do

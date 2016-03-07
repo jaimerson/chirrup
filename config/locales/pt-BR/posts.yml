@@ -1,0 +1,5 @@
+pt-BR:
+  posts:
+    new:
+      placeholder: 'O que você está pensando?'
+      button: Enviar

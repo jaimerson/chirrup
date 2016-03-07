@@ -1,0 +1,13 @@
+<section class="new-post">
+  <%= form_for(Post.new) do |f| %>
+    <%= f.text_field :content,
+      placeholder: t(:placeholder, scope: [:posts, :new]),
+      class: 'post-editor',
+      maxlength: '160'
+    %>
+    <%= f.submit t(:button, scope: [:posts, :new]), id: 'chirp-btn' %>
+  <% end %>
+</section>
+<section class="posts">
+  <%= render partial: 'post', collection: @posts %>
+</section>

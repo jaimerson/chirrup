@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'posts#index', as: :signed_in_root
-    resources :posts, only: [:index]
+    resources :posts, only: [:index, :create]
   end
 
   root to: 'home#index'

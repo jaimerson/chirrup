@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   include Clearance::User
+
+  has_many :posts, dependent: :destroy
+
   validates :username,
     presence: true,
     uniqueness: { case_sensitive: false },

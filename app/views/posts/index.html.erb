@@ -8,7 +8,8 @@
       <%= f.text_field :content,
         placeholder: t(:placeholder, scope: [:posts, :new]),
         class: 'post-editor',
-        maxlength: '160'
+        maxlength: '160',
+        required: true
       %>
       <%= f.submit t(:button, scope: [:posts, :new]), id: 'chirp-btn' %>
     <% end %>

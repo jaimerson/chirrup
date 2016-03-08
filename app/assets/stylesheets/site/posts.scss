@@ -1,0 +1,12 @@
+.new-post{
+  padding: 1em;
+  background-color: transparentize(#666, 0.9);
+
+  .post-editor{
+    min-height: 6em;
+  }
+
+  #chirp-btn{
+    text-align: right;
+  }
+}

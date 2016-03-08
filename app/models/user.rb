@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   end
 
   def follow(user)
+    return false if user == self
     unless user.followers.include? self
       user.followers << self
       user.notify(:new_follower, self)

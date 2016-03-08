@@ -14,15 +14,18 @@
     padding-top: 10px;
   }
 
-  .btn, .follow{
-    margin: 0 auto;
-    width: 40%;
+  .btn{
     text-align: center;
+    margin: 0 auto;
     display: block;
   }
 
   .following{
     background-color: red;
+
+    &:hover{
+      background-color: darken(red, 30%);
+    }
   }
 
   .stats{

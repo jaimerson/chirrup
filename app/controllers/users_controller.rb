@@ -5,8 +5,18 @@ class UsersController < Clearance::UsersController
   end
 
   def follow
-    @user = User.find_by(username: params[:username])
-    if @user && current_user.follow(@user)
+    @user = User.find_by!(username: params[:username])
+    if current_user.follow(@user)
+      redirect_to user_path(@user.username)
+    else
+      redirect_to(request.referrer || root_path, notice: 'Something went wrong')
+    end
+  end
+
+  def unfollow
+    @user = User.find_by!(username: params[:username])
+    followership = Followership.find_by!(user_id: @user.id, follower: current_user)
+    if followership.destroy
       redirect_to user_path(@user.username)
     else
       redirect_to(request.referrer || root_path, notice: 'Something went wrong')

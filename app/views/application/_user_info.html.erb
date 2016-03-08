@@ -32,10 +32,11 @@
 <% if(signed_in? && user != current_user) %>
   <div class="follow-info">
     <% if current_user.following?(user) %>
-      <span class="btn following">Seguindo</span>
+      <%= button_to 'Seguindo', unfollow_user_path(user.username),
+        class: "btn following", method: :put %>
     <% else %>
       <%= button_to 'Seguir', follow_user_path(user.username),
-        class: "follow", method: :put %>
+        class: "btn follow", method: :put %>
     <% end %>
   </div>
 <% end %>

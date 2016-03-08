@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :notifications, only: [:index]
     scope '/:username' do
       put '/follow' => 'users#follow', as: :follow_user
+      put '/unfollow' => 'users#unfollow', as: :unfollow_user
     end
   end
 

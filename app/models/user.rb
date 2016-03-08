@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   include Gravtastic
   include Notifiable
 
-  notifiers ApplicationNotifier
+  notifiers ::ApplicationNotifier
   has_gravatar
 
   has_many :posts, dependent: :destroy

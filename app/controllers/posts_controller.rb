@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post
       .includes(:user)
-      .all
+      .where(user_id: current_user.following_ids << current_user.id)
       .order(created_at: :desc)
   end
 

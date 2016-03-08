@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
   include Clearance::User
   include Gravtastic
+  include Notifiable
 
+  notifiers ApplicationNotifier
   has_gravatar
 
   has_many :posts, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   has_many :following_relationships,
     class_name: 'Followership',
@@ -40,6 +43,9 @@ class User < ActiveRecord::Base
   end
 
   def follow(user)
-    user.followers << self unless user.followers.include? self
+    unless user.followers.include? self
+      user.followers << self
+      user.notify(:new_follower, self)
+    end
   end
 end

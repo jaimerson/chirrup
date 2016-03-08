@@ -1,0 +1,5 @@
+pt-BR:
+  notifications:
+    messages:
+      new_follower: 'Você tem um novo seguidor'
+      none: 'Você ainda não recebeu nenhuma notificação -\_(ツ)_/-'

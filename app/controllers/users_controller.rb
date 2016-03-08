@@ -4,6 +4,15 @@ class UsersController < Clearance::UsersController
   def show
   end
 
+  def follow
+    @user = User.find_by(username: params[:username])
+    if @user && current_user.follow(@user)
+      redirect_to user_path(@user), status: :created
+    else
+      redirect_to(request.referrer || root_path, notice: 'Something went wrong')
+    end
+  end
+
   private
 
   def set_user

@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'posts#index', as: :signed_in_root
     resources :posts, only: [:index, :create]
+    resources :notifications, only: [:index]
+    scope '/:username' do
+      put '/follow' => 'users#follow', as: :follow_user
+    end
   end
 
   scope '/:username' do

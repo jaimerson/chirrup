@@ -1,0 +1,13 @@
+<aside class="user-info flex-box flex-box-small">
+  <%= render 'user_info', user: current_user %>
+</aside>
+
+<div class="content flex-box flex-box-big">
+  <section class="notifications">
+    <% if @notifications.any? %>
+      <%= render partial: 'notification', collection: @notifications %>
+    <% else %>
+      <h3><%= t('notifications.messages.none') %></h3>
+    <% end %>
+  </section>
+</div>

@@ -1,0 +1,13 @@
+<div class="comment-image">
+  <%= user_avatar_for(notification.follower, size: 150) %>
+</div>
+<div class="comment-content">
+  <p><%= t('notifications.messages.new_follower') %>:
+    <%= link_to user_path(notification.follower_username) do %>
+      @<%= notification.follower_username %>
+    <% end %>
+  </p>
+  <p class="comment-detail">
+    <%= time_ago_in_words(notification.created_at) %>
+  </p>
+</div>

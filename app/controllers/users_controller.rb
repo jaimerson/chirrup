@@ -4,6 +4,14 @@ class UsersController < Clearance::UsersController
   def show
   end
 
+  def search
+    @users = User.search_by_username(params[:username])
+    respond_to do |format|
+      format.json { render json: @users.as_json(only: :username) }
+      format.html
+    end
+  end
+
   def follow
     @user = User.find_by!(username: params[:username])
     if current_user.follow(@user)

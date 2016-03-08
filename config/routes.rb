@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resource :session, controller: "clearance/sessions", only: [:create]
 
   resources :users, only: [:create] do
+    collection do
+      get '/search/' => 'users#search', as: :search
+    end
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]

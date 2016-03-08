@@ -2,9 +2,14 @@ class User < ActiveRecord::Base
   include Clearance::User
   include Gravtastic
   include Notifiable
+  include PgSearch
 
   notifiers ::ApplicationNotifier
   has_gravatar
+  pg_search_scope :search_by_username,
+    against: :username,
+    using: [:tsearch, :trigram, :dmetaphone],
+    ignoring: :accents
 
   has_many :posts, dependent: :destroy
   has_many :notifications, dependent: :destroy

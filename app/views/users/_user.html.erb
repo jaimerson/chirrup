@@ -1,0 +1,15 @@
+<div class="comment">
+  <div class="comment-image">
+    <%= user_avatar_for(user, size: 100) %>
+  </div>
+  <div class="comment-content">
+    <h1>
+      <%= link_to user_path(user.username) do %>
+        @<%= user.username %>
+      <% end %>
+    </h1>
+    <p class="comment-detail">
+      Membro desde <%= l(user.created_at, format: :short) %>
+    </p>
+  </div>
+</div>

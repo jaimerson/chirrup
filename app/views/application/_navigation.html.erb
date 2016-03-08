@@ -17,12 +17,13 @@
     </nav>
     <div class="navigation-tools">
       <div class="search-bar">
-        <form role="search">
-          <input type="search" placeholder="Search" />
+        <%= form_tag search_users_path, role: 'search',
+          class: 'search-form', method: :get do %>
+          <input type="search" placeholder="Search" name="username" id="search"/>
           <button type="submit">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
           </button>
-        </form>
+        <% end %>
       </div>
       <nav role="navigation">
         <ul id="js-navigation-menu" class="navigation-menu show">

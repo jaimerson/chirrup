@@ -58,4 +58,9 @@ class User < ActiveRecord::Base
   def following?(user)
     self.following.include? user
   end
+
+  def not_following
+    self.class
+      .where.not(id: self.following | [self])
+  end
 end

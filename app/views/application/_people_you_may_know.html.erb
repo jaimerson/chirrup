@@ -1,0 +1,16 @@
+<div class="people-you-may-know">
+  <h4>Pessoas que talvez você conheça:</h4>
+  <% users.each do |user| %>
+    <div class="person-you-may-know">
+      <span>
+      <%= user_avatar_for(user, size: 50, class: 'profile-image') %>
+      </span>
+      <span>
+      <%= link_to "@#{user.username}", user_path(user.username) %>
+      </span>
+      <span>
+        <%= button_to 'Seguir', follow_user_path(user.username), method: :put %>
+      </span>
+    </div>
+  <% end %>
+</div>

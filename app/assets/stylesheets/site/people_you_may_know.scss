@@ -1,0 +1,19 @@
+.people-you-may-know{
+
+  h4{
+    color: #9493B2;
+    text-align: center;
+  }
+  .person-you-may-know{
+    background-color: transparentize(white, 0.6);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    span{
+      padding: .1em;
+    }
+  }
+}

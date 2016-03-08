@@ -18,3 +18,9 @@
     <%= render partial: 'post', collection: @posts %>
   </section>
 </div>
+
+<% if current_user.not_following.any? %>
+  <aside class="flex-box flex-box-small">
+    <%= render 'people_you_may_know', users: current_user.not_following.sample(3) %>
+  </aside>
+<% end %>

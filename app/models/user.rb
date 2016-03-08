@@ -48,4 +48,8 @@ class User < ActiveRecord::Base
       user.notify(:new_follower, self)
     end
   end
+
+  def following?(user)
+    self.following.include? user
+  end
 end

@@ -7,7 +7,7 @@ class UsersController < Clearance::UsersController
   def follow
     @user = User.find_by(username: params[:username])
     if @user && current_user.follow(@user)
-      redirect_to user_path(@user), status: :created
+      redirect_to user_path(@user.username)
     else
       redirect_to(request.referrer || root_path, notice: 'Something went wrong')
     end

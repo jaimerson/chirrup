@@ -6,7 +6,7 @@
       Posts
     </span>
     <span class="stats-value">
-      666
+      <%= user.posts.count %>
     </span>
   </li>
 
@@ -15,7 +15,7 @@
       Seguindo
     </span>
     <span class="stats-value">
-      666
+      <%= user.following.count %>
     </span>
   </li>
 
@@ -24,8 +24,18 @@
       Seguidores
     </span>
     <span class="stats-value">
-      666
+      <%= user.followers.count %>
     </span>
   </li>
 
 </ul>
+<% if(signed_in? && user != current_user) %>
+  <div class="follow-info">
+    <% if current_user.following?(user) %>
+      <span class="btn following">Seguindo</span>
+    <% else %>
+      <%= button_to 'Seguir', follow_user_path(user.username),
+        class: "follow", method: :put %>
+    <% end %>
+  </div>
+<% end %>

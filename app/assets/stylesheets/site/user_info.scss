@@ -14,6 +14,17 @@
     padding-top: 10px;
   }
 
+  .btn, .follow{
+    margin: 0 auto;
+    width: 40%;
+    text-align: center;
+    display: block;
+  }
+
+  .following{
+    background-color: red;
+  }
+
   .stats{
     display: flex;
 
@@ -26,6 +37,12 @@
       &:last-child{
         border: none;
       }
+    }
+
+    span{
+      width: 100%;
+      text-align: center;
+      display: block;
     }
 
     .stats-caption{

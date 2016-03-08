@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   scope '/:username' do
     get '/' => 'users#show', as: :user
     resources :posts, only: [:show]
+    get '/following' => 'users#following', as: :following
+    get '/followers' => 'users#followers', as: :followers
   end
 
   root to: 'home#index'

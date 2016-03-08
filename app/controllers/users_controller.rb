@@ -1,5 +1,6 @@
 class UsersController < Clearance::UsersController
-  before_action :set_user, only: [:show]
+  before_action :set_user_including_posts, only: [:show]
+  before_action :set_user, only: [:followers, :following, :follow, :unfollow]
 
   def show
   end
@@ -12,8 +13,17 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def followers
+    @users = @user.followers
+    render 'index'
+  end
+
+  def following
+    @users = @user.following
+    render 'index'
+  end
+
   def follow
-    @user = User.find_by!(username: params[:username])
     if current_user.follow(@user)
       redirect_to user_path(@user.username)
     else
@@ -22,7 +32,6 @@ class UsersController < Clearance::UsersController
   end
 
   def unfollow
-    @user = User.find_by!(username: params[:username])
     followership = Followership.find_by!(user_id: @user.id, follower: current_user)
     if followership.destroy
       redirect_to user_path(@user.username)
@@ -34,6 +43,10 @@ class UsersController < Clearance::UsersController
   private
 
   def set_user
+    @user = User.find_by!(username: params[:username])
+  end
+
+  def set_user_including_posts
     @user = User.includes(:posts)
       .find_by(username: params[:username])
   end

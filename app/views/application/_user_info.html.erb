@@ -2,30 +2,36 @@
 <h2 class="username">@<%= user.username %></h2>
 <ul class="stats">
   <li>
-    <span class="stats-caption">
-      Posts
-    </span>
-    <span class="stats-value">
-      <%= user.posts.count %>
-    </span>
+    <%= link_to user_path(user.username) do %>
+      <span class="stats-caption">
+        Posts
+      </span>
+      <span class="stats-value">
+        <%= user.posts.count %>
+      </span>
+    <% end %>
   </li>
 
   <li>
-    <span class="stats-caption">
-      Seguindo
-    </span>
-    <span class="stats-value">
-      <%= user.following.count %>
-    </span>
+    <%= link_to following_path(user.username) do %>
+      <span class="stats-caption">
+        Seguindo
+      </span>
+      <span class="stats-value">
+        <%= user.following.count %>
+      </span>
+    <% end %>
   </li>
 
   <li>
-    <span class="stats-caption">
-      Seguidores
-    </span>
-    <span class="stats-value">
-      <%= user.followers.count %>
-    </span>
+    <%= link_to followers_path(user.username) do %>
+      <span class="stats-caption">
+        Seguidores
+      </span>
+      <span class="stats-value">
+        <%= user.followers.count %>
+      </span>
+    <% end %>
   </li>
 
 </ul>

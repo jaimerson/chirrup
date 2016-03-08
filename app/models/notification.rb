@@ -1,6 +1,6 @@
 class Notification < ActiveRecord::Base
   belongs_to :user
-  has_one :follower_notification
+  has_one :follower_notification, dependent: :delete
 
   validates_presence_of :follower_notification, if: :new_follower?
   validates_presence_of :user
@@ -11,5 +11,7 @@ class Notification < ActiveRecord::Base
   }.freeze
 
   enum notification_type: TYPES
+
+  scope :unread, ->{ where(read: false) }
 
 end

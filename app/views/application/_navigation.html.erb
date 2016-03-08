@@ -10,7 +10,12 @@
         </li>
         <% if signed_in? %>
           <li class="nav-link">
-            <%= link_to 'Notificações', notifications_path %>
+            <%= link_to notifications_path do %>
+              Notificações
+              <% if current_user.unread_notifications.any? %>
+                <span class="notifications-count"><%= current_user.unread_notifications.count %></span>
+              <% end %>
+            <% end %>
           </li>
         <% end %>
       </ul>

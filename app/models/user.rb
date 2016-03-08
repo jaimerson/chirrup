@@ -63,4 +63,8 @@ class User < ActiveRecord::Base
     self.class
       .where.not(id: self.following | [self])
   end
+
+  def unread_notifications
+    notifications.unread
+  end
 end
